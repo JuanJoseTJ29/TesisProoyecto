@@ -18,8 +18,8 @@ def app():
     df = df.set_index("Fecha_Cambio")
     df = df[anio_presente:]
 
-    st.title('Predicción del tipo de cambio sol-euro')
-    st.subheader('Datos hasta el 2020')
+    st.title('Predicción del tipo de cambio Sol-Euro')
+    st.subheader('Datos con respecto al tipo de cambio Sol - Euro')
 
     if int(anio_presente) < 2021:
         st.write(df['TC_Soles_Euros'].describe())
@@ -126,7 +126,7 @@ def app():
         plt.legend()
         st.pyplot(fig3)
 
-        st.subheader('Mostrar los datos') 
+        st.subheader('Mostrar los datos originales y los datos predecidos') 
         st.write(valid)
         
     else:
