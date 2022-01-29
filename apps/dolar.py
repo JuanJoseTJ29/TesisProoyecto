@@ -1,12 +1,12 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-
+import pandas_datareader as data
 from tensorflow.keras.models import load_model
 import streamlit as st
 
 def app():
-
+    
     st.title('Dolares') 
 
     tiempo = st.date_input('Introduzca la fecha')
@@ -23,13 +23,16 @@ def app():
     st.subheader('Datos hasta el 2020')
 
     if int(anio_presente) < 2021:
-        st.write(df.describe())
+        st.write(df['TC_Soles_Dolares'].describe())
 
-        #Visualizaciones 
+    #Visualizaciones 
+
+  
         st.subheader('Variacion del tipo de cambio del dolar en el tiempo')
         fig = plt.figure(figsize = (12,6))
         plt.plot(df.TC_Soles_Dolares)
         st.pyplot(fig)
+
 
 
         # Splitting data into training and testing 
@@ -55,6 +58,8 @@ def app():
         #scaler = MinMaxScaler(feature_range = (0,1))
 
         #data_training_array = scaler.fit_transform(data_training)
+
+
 
 
         # Cargar mi modelo
@@ -91,6 +96,9 @@ def app():
         rmse
 
 
+
+
+
         # Grafico Final
         # Plot the data
         train = data[:training_data_len]
@@ -124,7 +132,6 @@ def app():
 
     else:
         st.write('Solo se puede hasta el 2021')
-
 
 
 
