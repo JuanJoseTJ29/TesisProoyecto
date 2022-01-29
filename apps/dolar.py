@@ -11,7 +11,7 @@ def app():
     
     st.title('Dolares') 
 
-    tiempo = st.date_input('Introduzca la fecha')
+    tiempo = st.date_input('Introduzca una fecha anterior al 2021')
     tiempo = str(tiempo)
     anio_presente = (tiempo[:4])
 
