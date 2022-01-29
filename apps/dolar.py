@@ -20,7 +20,7 @@ def app():
     df = df[anio_presente:]
 
     st.title('Predicción del tipo de cambio sol-dolar')
-    st.subheader('Datos hasta el 2020')
+    st.subheader('Datos con respecto al tipo de cambio Sol - Dolar')
 
     if int(anio_presente) < 2021:
         st.write(df['TC_Soles_Dolares'].describe())
@@ -127,7 +127,7 @@ def app():
         plt.legend()
         st.pyplot(fig3)
 
-        st.subheader('Mostrar los datos') 
+        st.subheader('Mostrar los datos originales y los datos predecidos') 
         st.write(valid)
 
     else:
