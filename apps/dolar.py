@@ -19,7 +19,7 @@ def app():
     df = df.set_index("Fecha_Cambio")
     df = df[anio_presente:]
 
-    st.title('Predicción del tipo de cambio sol-dolar')
+    st.title('Predicción del tipo de cambio Sol-Dolar')
     st.subheader('Datos con respecto al tipo de cambio Sol - Dolar')
 
     if int(anio_presente) < 2021:
