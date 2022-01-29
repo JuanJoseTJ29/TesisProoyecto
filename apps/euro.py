@@ -5,12 +5,12 @@ import pandas_datareader as data
 from tensorflow.keras.models import load_model
 import streamlit as st
 from sklearn import metrics
-import plotly.express as 
+import plotly.express as px
 
 def app():
     st.title('Euros')
 
-    tiempo = st.date_input('Introduzca la fecha')
+    tiempo = st.date_input('Introduzca una fecha anterior al 2021')
     tiempo = str(tiempo)
     anio_presente = (tiempo[:4])
 
