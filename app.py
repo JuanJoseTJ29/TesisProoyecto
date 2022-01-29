@@ -18,6 +18,8 @@ st.write('- Rojas Miñan, Alexis Luis Clemente')
 st.write('- Tirado Julca Juan Jose')
 st.write('- Valentin Ricaldi David Frank')
 
+st.title('Escoja la divisa:')
+
 # Add all your application here
 #app.add_app("Home", home.app)
 app.add_app("Dolares", dolar.app)
