@@ -4,6 +4,8 @@ import matplotlib.pyplot as plt
 import pandas_datareader as data
 from tensorflow.keras.models import load_model
 import streamlit as st
+from sklearn import metrics
+import plotly.express as 
 
 def app():
     st.title('Euros')
@@ -128,6 +130,30 @@ def app():
 
         st.subheader('Mostrar los datos originales y los datos predecidos') 
         st.write(valid)
+        
+         # Evaluación del modelo
+    
+        st.title('Evaluación del Modelo LSTM')
+        ## Métricas
+        MAE=metrics.mean_absolute_error(y_test, predictions)
+        MSE=metrics.mean_squared_error(y_test, predictions)
+        RMSE=np.sqrt(metrics.mean_squared_error(y_test, predictions))
+
+        metricas = {
+            'metrica' : ['Mean Absolute Error', 'Mean Squared Error', 'Root Mean Squared Error'],
+            'valor': [MAE, MSE, RMSE]
+        }
+        metricas = pd.DataFrame(metricas)  
+        ### Gráfica de las métricas
+        st.subheader('Métricas de rendimiento') 
+        fig = px.bar(        
+            metricas,
+            x = "metrica",
+            y = "valor",
+            title = "Métricas del Modelo LSTM",
+            color="metrica"
+        )
+        st.plotly_chart(fig)
         
     else:
         st.write('Solo se puede hasta el 2021')
