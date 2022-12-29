@@ -1,2 +1,2 @@
-# mineriaP1
-GRUPO 2
+# 
+Proyecto de Tesis
